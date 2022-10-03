@@ -1,16 +1,39 @@
 #include "main.h"
 
 /**
- * main - tests function that prints if an integer is positive or negative
- * Return: 0
+ * create_array - array for prints a string
+ * @size: number elements array
+ * @c: char
+ * Return: pointer
  */
 
-int main(void)
+char *create_array(unsigned int size, char c)
 {
-	int i;
+	char *buffer;
+	unsigned int position;
 
-	i = 0;
-	positive_or_negative(i);
+	if (size == 0)
+	{
+		return (NULL);
+	}
 
-	return (0);
+	/*Define values with malloc*/
+	buffer = (char *) malloc(size * sizeof(c));
+
+	if (buffer == 0)
+	{
+		return (NULL);
+	}
+
+	else
+	{
+		position = 0;
+		while (position < size) /*While for array*/
+		{
+			*(buffer + position) = c;
+			position++;
+		}
+
+		return (buffer);
+	}
 }
